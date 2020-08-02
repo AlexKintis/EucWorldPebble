@@ -5,6 +5,7 @@
 
 static GFont font_square_50;
 static GFont font_square_20;
+static GFont font_square_30;
 static GFont font_square_15;
 
 TextLayer *text_layer_rt_title;
@@ -30,19 +31,26 @@ void draw_display(Window **window, Layer **gui_layer, Layer **details_layer, Tex
   
 	font_square_50 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SQUARE_50));
 	font_square_20 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SQUARE_20));
+	font_square_30 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SQUARE_30)); // Added by AlexKintis
 	font_square_15 = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SQUARE_15));
-  
-	*text_layer_time = text_layer_create(GRect(0, 20, window_bounds.size.w, 50));
+	
+	
+	*text_layer_time = text_layer_create(GRect(0, 15, window_bounds.size.w, 50)); // Modified by AlexKintis
 	text_layer_set_font(*text_layer_time, font_square_15);
 
 	*arc_layer = layer_create(layer_get_bounds(window_get_root_layer(*window)));
 	
-	*text_layer_speed = text_layer_create(GRect(0, 30, window_bounds.size.w, 50));
-	text_layer_set_font(*text_layer_speed, font_square_50);
+	*text_layer_speed = text_layer_create(GRect(0, 30, window_bounds.size.w, 50)); // Modified by AlexKintis
+	text_layer_set_font(*text_layer_speed, font_square_30);
 
-	*text_layer_mph = text_layer_create(GRect(0, 82, window_bounds.size.w, 20));
+	*text_layer_mph = text_layer_create(GRect(0, 60, window_bounds.size.w, 20));
 	text_layer_set_font(*text_layer_mph, font_square_20);
 	
+	// Added by AlexKintis
+	 *text_layer_voltage = text_layer_create(GRect(0, 85, window_bounds.size.w, 20));
+	text_layer_set_font(*text_layer_voltage, font_square_15);
+	// end	
+
 	*text_layer_battery = text_layer_create(GRect(92, 105, 72, 20));
 	text_layer_set_font(*text_layer_battery, font_square_20);
 
@@ -104,6 +112,7 @@ void destroy_display() {
 	text_layer_destroy(text_layer_d_title);
 	text_layer_destroy(text_layer_ts_title);
 	fonts_unload_custom_font(font_square_15);
+	fonts_unload_custom_font(font_square_30);
 	fonts_unload_custom_font(font_square_20);
 	fonts_unload_custom_font(font_square_50);
 }

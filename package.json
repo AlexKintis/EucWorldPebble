@@ -107,7 +107,7 @@
                     "type": "bitmap"
                 },
                 {
-                    "characterRegex": "[0-9:]",
+                    "characterRegex": "[0-9V:.]",
                     "file": "fonts/SF Square Head Bold.ttf",
                     "name": "FONT_SQUARE_15",
                     "targetPlatforms": [
@@ -173,7 +173,20 @@
                         "diorite"
                     ],
                     "type": "font"
+                } , 
+		{
+                    "characterRegex": "[0-9V.:]",
+                    "file": "fonts/SF Square Head Bold.ttf",
+                    "name": "FONT_SQUARE_30",
+                    "targetPlatforms": [
+                        "aplite",
+                        "basalt",
+                        "chalk",
+                        "diorite"
+                    ],
+                    "type": "font"
                 }
+
             ]
         },
         "sdkVersion": "3",
